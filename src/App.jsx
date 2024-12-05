@@ -1,37 +1,44 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import './style.css';
+import Sidebar from "./page/Navbar/Sidebar.jsx";
+import { Button } from "./components/ui/button";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./page/Navbar/Navbar.jsx";
+import Home from "./page/Home/Home.jsx";
+import Portfolio from "./page/Portfolio/Portfolio.jsx";
+import Activity from "./page/Activity/Activity.jsx";
+import Wallet from "./page/Wallet/Wallet.jsx";
+import Withdrawal from "./page/Withdrawal/Withdrawal.jsx";
+import PaymentDetails from "./page/Payment Details/PaymentDetails.jsx";
+import StockDetails from "./page/Stock Details/StockDetails.jsx";
+import Watchlist from "./page/Watchlist/Watchlist.jsx";
+import Profile from "./page/Profile/Profile.jsx";
+import SearchCoin from "./page/Search/SearchCoin.jsx";
+import NotFound from "./page/NotFound/NotFound.jsx";
+import Auth from "./page/Auth/Auth.jsx";
 
 function App() {
   return (
-    <Router>
-      <nav className="navbar">
-        <div className="brand">WealthWise</div>
-        <div className="nav-links">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/login" className="nav-link">Login</Link>
-          <Link to="/register" className="nav-link">Register</Link>
+    <>
+      {/* <Auth /> */}
+      {true && (
+        <div>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/activity" element={<Activity />} />
+            <Route path="/wallet" element={<Wallet />} />
+            <Route path="/withdrawal" element={<Withdrawal />} />
+            <Route path="/payment-details" element={<PaymentDetails />} />
+            <Route path="/market/:id" element={<StockDetails />} />
+            <Route path="/watchlist" element={<Watchlist />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/search" element={<SearchCoin />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
-      </Routes>
-    </Router>
+      )}
+    </>
   );
 }
-
-const Home = () => (
-  <div className="container">
-    <div className="form-wrapper">
-      <h2>Welcome to WealthWise</h2>
-      
-    </div>
-  </div>
-);
 
 export default App;
