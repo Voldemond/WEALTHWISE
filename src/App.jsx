@@ -18,12 +18,13 @@ import Auth from "./page/Auth/Auth.jsx";
 function App() {
   return (
     <>
-      {/* <Auth /> */}
+      {/* <Auth this is comment /> */}
       {true && (
         <div>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home/>} />
+         
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/activity" element={<Activity />} />
             <Route path="/wallet" element={<Wallet />} />
